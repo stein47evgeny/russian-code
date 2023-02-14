@@ -1,0 +1,21 @@
+{
+  "name": "Шаблон"
+, "files": [ { "directory": ".", "filters": ["*.r", "*.rh", "*.rpp", "*.c", "*.cpp", "*.h", "Makefile", "readme"], "recursive": 1} ],
+    "build": {
+
+       "directory": "./",
+       "default_target": "all",
+       "clean_target": "clean",
+       "run_target": "run",
+       "targets":[
+           { "name":"all", "build_cmd":"make all" },
+           { "name":"clean", "build_cmd":"make clean" },
+           { "name":"run", "build_cmd":"make run" },
+           { "name":"reserve", "build_cmd":"make reserve" },
+           { "name":"test", "build_cmd":"make test" }
+       ]
+
+       }
+
+}
+

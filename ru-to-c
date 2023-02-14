@@ -1,0 +1,15 @@
+s/#вставка/#include/g
+s/#если_есть/#ifdef/g
+s/#если_нет/#ifndef/g
+s/#если/#if/g
+s/#иначе/#else/g
+s/#иначе_если/#elif/g
+s/#конец_если/#endif/g
+s/#к_если/#endif/g
+s/#макрос/#define/g
+s/#отмена/#undef/g
+s/#ошибка/#error/g
+s/#прагма/#pragma/g
+s/#предупреждение/#warning/g
+s/#строка/#line/g
+
