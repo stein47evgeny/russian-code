@@ -150,7 +150,7 @@ $(OUT):    $(OBJECTS)
 $(SRCDIR)%.c : $(SRC_RUS_DIR)%.r
 	@echo
 	@echo $(MSG_DECODE_RUS) 
-	sed '1s/^/#line 1 "$(START_DIR)$(notdir $<)"\n/' $< | sed -f ru-to-c > $@
+	sed '1s/^/#line 1 "$(START_DIR)$(notdir $<)"\n/' $< |  sed -E -f ru-to-c > $@
 
 #Перекодировка из .rpp в .cpp	
 $(SRCDIR)%.cpp : $(SRC_RUS_DIR)%.rpp
