@@ -76,7 +76,7 @@ test:
 GENDEPFLAGS = -MD -MF $(BIN_DIR).dep/$(@F).d
 
 
-CFLAGS=-c -Os -Wall $(GENDEPFLAGS)
+CFLAGS=-c -Os -Wall $(GENDEPFLAGS) -I./include
 #CFLAGS += -static -static-libgcc
 #LDFLAGS=-s -Wl,-subsystem,console
 LDFLAGS=
@@ -150,13 +150,13 @@ $(OUT):    $(OBJECTS)
 $(SRCDIR)%.c : $(SRC_RUS_DIR)%.r
 	@echo
 	@echo $(MSG_DECODE_RUS) 
-	sed '1s/^/#line 1 "$(START_DIR)$(notdir $<)"\n/' $< |  sed -E -f ru-to-c > $@
+	sed '1s/^/#line 1 "$(START_DIR)$(notdir $<)"\n/' $< |  sed  -f ru-to-c > $@
 
 #Перекодировка из .rpp в .cpp	
 $(SRCDIR)%.cpp : $(SRC_RUS_DIR)%.rpp
 	@echo
 	@echo $(MSG_DECODE_RUS) 
-	@echo "sed '1s/^/#line 1 "$(START_DIR)$(notdir $<)"\n/' $< | sed -f ru-to-c > $@"
+	sed '1s/^/#line 1 "$(START_DIR)$(notdir $<)"\n/' $< | sed -f ru-to-c > $@
 
 #Перекодировка из .rh в .h	
 $(SRCDIR)%.h : $(SRC_RUS_DIR)%.rh
